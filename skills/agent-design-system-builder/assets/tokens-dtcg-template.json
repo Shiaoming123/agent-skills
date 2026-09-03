@@ -1,0 +1,28 @@
+{
+  "color": {
+    "$type": "color",
+    "primitive": {
+      "neutral": {
+        "0": { "$value": { "colorSpace": "srgb", "components": [1, 1, 1], "alpha": 1 } },
+        "1000": { "$value": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 1 } }
+      }
+    },
+    "semantic": {
+      "text": {
+        "primary": { "$value": "{color.primitive.neutral.1000}" }
+      },
+      "surface": {
+        "canvas": { "$value": "{color.primitive.neutral.0}" }
+      }
+    }
+  },
+  "dimension": {
+    "$type": "dimension",
+    "space": {
+      "100": { "$value": { "value": 4, "unit": "px" } },
+      "200": { "$value": { "value": 8, "unit": "px" } },
+      "300": { "$value": { "value": 12, "unit": "px" } },
+      "400": { "$value": { "value": 16, "unit": "px" } }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "owner": "Shiaoming123",
+  "skills": [
+    {
+      "name": "agent-design-system-builder",
+      "path": "skills/agent-design-system-builder",
+      "version": "0.1.0",
+      "license": "MIT",
+      "status": "active"
+    },
+    {
+      "name": "social-content-preflight",
+      "path": "skills/social-content-preflight",
+      "version": "0.1.0",
+      "license": "MIT",
+      "status": "active"
+    }
+  ]
+}
+
