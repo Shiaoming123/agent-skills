@@ -1,45 +1,45 @@
 ---
 name: social-content-preflight
 description: 帮你在发布小红书、抖音或 B 站内容前，系统检查文案、脚本、字幕与素材是否适合发布。它会识别高风险内容、事实证据缺口、隐私与版权问题，并给出 PASS、REVIEW 或 BLOCK 结论及可执行改写；所有发布动作仍需人工确认。
-version: 0.1.1
+version: 0.1.2
 ---
 
-# Social Content Preflight
+# 社交内容发布前检查
 
-## Purpose
+## 用途
 
-Act as the gate between content generation and browser publishing. Review the complete draft, its claims, media, audience fit, and platform-specific risks. This skill can reduce avoidable risk; it cannot guarantee approval, reach, or the absence of every newly changing rule.
+作为内容生成与浏览器发布之间的把关环节，检查完整草稿、其中的主张、配套素材、受众匹配度和平台特定风险。此 Skill 可以减少可避免的风险，但不能保证内容一定通过审核、获得流量，也不能保证覆盖所有不断变化的新规则。
 
-Read these references when relevant:
+根据任务需要读取以下参考文件：
 
-- `references/account-profile-template.md` to create a private account profile when the user provides one. Do not invent or publish personal profile details.
-- `references/platform-rules.md` for official rule links and the limits of third-party detectors.
-- `references/review-output.md` for the input fields and compact report format.
+- 当用户提供账户信息时，使用 `references/account-profile-template.md` 创建私有账户画像。不得虚构或公开个人画像详情。
+- 使用 `references/platform-rules.md` 查看官方规则链接，并了解第三方检测工具的能力边界。
+- 使用 `references/review-output.md` 确认输入字段和精简报告格式。
 
-## Workflow
+## 工作流程
 
-1. Normalize the submission into platform, content type, title, body/script, subtitles, media description, claims, sources, AI-use disclosure, and commercial intent. If a required field is missing, mark it as unknown rather than inventing it.
-2. Run a hard-risk review before stylistic editing. Block or escalate content involving illegal activity, sexual exploitation, graphic violence, fraud, gambling, privacy or personal data, minors at risk, credentials, internal or unreleased information, unlicensed media, fabricated identities/results/testimonials/metrics, engagement manipulation, or instructions to evade review.
-3. If `content-compliance-checker` is installed and available, use it as an optional high-recall warning layer for advertising absolutes, guarantees, medical/financial claims, authority claims, platform-sensitive terms, and other sensitive categories. A hit is a review signal, not proof of a violation; ordinary words can false-positive. If it is unavailable, continue the manual category and evidence review, and disclose that the optional detector was not run. Do not invent a complete platform blacklist and do not recommend homophone, pinyin, split-character, or image-text evasion.
-4. Separate claims by evidence class:
-   - public fact: retain a source and date;
-   - personal experience: identify it as personal, remove private details, and avoid generalizing;
-   - inference: label it as an inference;
-   - unverified or confidential claim: do not publish until verified or removed.
-5. Check account fit against the private profile supplied by the user. If no profile is available, mark account fit as unknown and apply only the general audience and evidence boundaries. Prefer concrete experience, reproducible methods, evidence or clearly stated limitations, and a useful takeaway. Reject invented workplace stories, motivational marketing, unsupported “industry first” language, and aggressive controversy that does not serve the stated audience.
-6. Rewrite risky phrasing without changing meaning. For example:
+1. 将待检查内容整理为以下字段：平台、内容类型、标题、正文或脚本、字幕、素材说明、内容主张、信息来源、AI 使用披露和商业意图。缺少必填字段时，将其标为未知，不得自行虚构。
+2. 在润色风格之前先进行高风险检查。若内容涉及违法活动、性剥削、血腥暴力、诈骗、赌博、隐私或个人数据、处于风险中的未成年人、凭据、内部或未发布信息、未经授权的素材、虚构的身份/结果/证言/指标、诱导互动，或规避审核的指令，应阻止发布或升级为人工处理。
+3. 如果已安装且可以使用 `content-compliance-checker`，将其作为可选的高召回预警层，用于发现广告极限词、保证性承诺、医疗或金融主张、权威背书、平台敏感词及其他敏感类别。命中只代表需要复核，并不能证明违规；普通词语也可能被误报。如果该工具不可用，继续进行人工分类和证据检查，并明确说明未运行此可选检测工具。不得虚构一份所谓完整的平台黑名单，也不得建议使用谐音、拼音、拆字或图片文字来规避审核。
+4. 按证据类型区分内容主张：
+   - 公开事实：保留来源和日期；
+   - 个人经历：明确标为个人体验，移除隐私细节，避免泛化；
+   - 推断：明确标为推断；
+   - 未核实或机密主张：在核实或删除前不得发布。
+5. 根据用户提供的私有账户画像检查内容与账户的匹配度。没有账户画像时，将匹配度标为未知，只应用通用受众和证据边界。优先保留具体经历、可复现方法、证据或清楚说明的局限，以及对读者有用的结论。拒绝虚构职场故事、鸡汤式营销、缺乏依据的“行业第一”表述，以及不能服务目标受众的激进争议内容。
+6. 在不改变原意的前提下改写风险表达。例如：
    - “行业最强” -> “在这个任务和测试条件下表现较好”；
    - “彻底解决” -> “尝试解决其中一个具体环节，但仍有这些边界”；
    - “一定会进入家庭” -> “是否进入家庭取决于成本、可靠性、隐私和使用习惯”；
-   - “评论区扣1发资料” -> put the useful checklist in the post and remove forced engagement;
-   - “内部消息” -> replace with a public source or label it as an unverified claim and remove it.
-7. Adapt the final version to the platform without weakening safety: Xiaohongshu should be experience-led, useful, concrete, and non-spammy; Douyin should make the spoken claim and AI-use status clear; Bilibili should preserve source context, attribution, and long-form explanation.
-8. Return one of `PASS`, `PASS WITH REVIEW`, `REVIEW`, or `BLOCK`, with reasons, flagged spans, evidence gaps, proposed rewrites, and a final checklist. Always set `human_confirmation_required: true` for any publication action.
+   - “评论区扣1发资料” -> 将有用的清单直接放进正文，并删除强制互动引导；
+   - “内部消息” -> 换成公开来源；如果无法替换，则标记为未经核实并删除该主张。
+7. 在不降低安全要求的前提下，让最终版本适配目标平台：小红书内容应以体验为主、有用、具体且不过度营销；抖音内容应清楚表达口播主张和 AI 使用情况；Bilibili 内容应保留来源语境、署名和长篇解释。
+8. 返回 `PASS`、`PASS WITH REVIEW`、`REVIEW` 或 `BLOCK` 之一，并提供理由、命中的风险片段、证据缺口、建议改写和最终检查清单。任何发布动作都必须设置 `human_confirmation_required: true`。
 
-## Publication Boundary
+## 发布边界
 
-Never publish, like, follow, comment, send private messages, or batch-operate on the user's behalf from this skill. Before using the visible Edge browser, show the exact final title, body/script, tags, and media set; confirm privacy, rights, factual boundaries, and user approval. Publish at most one confirmed item, then verify the visible result. Stop on login challenges, CAPTCHA, risk control, browser disconnection, or uncertain submission status.
+此 Skill 不得代替用户发布、点赞、关注、评论、发送私信或执行批量操作。使用可见的 Edge 浏览器前，必须展示最终确认的标题、正文或脚本、标签和素材集合，并确认隐私、权利、事实边界和用户授权。每次最多发布一条已确认的内容，随后验证用户可见的发布结果。遇到登录验证、CAPTCHA、风控、浏览器断开连接或提交状态不确定时，立即停止。
 
-## Output Standard
+## 输出标准
 
-Use the schema in `references/review-output.md`. Be specific and conservative: quote the risky span, explain the category, distinguish official rules from third-party heuristics, and never claim “绝对安全”“保证过审” or “完整违禁词库”.
+使用 `references/review-output.md` 中的结构。输出应具体且审慎：引用风险片段，解释所属类别，区分官方规则与第三方启发式判断，且绝不声称“绝对安全”“保证过审”或拥有“完整违禁词库”。

@@ -6,8 +6,8 @@ Each Skill is independently versioned and keeps its own license and provenance e
 
 | Skill | Version | License | Description |
 | --- | --- | --- | --- |
-| [agent-design-system-builder](skills/agent-design-system-builder/) | 0.1.1 | MIT | Build evidence-backed design-system artifacts for agent-facing products. |
-| [social-content-preflight](skills/social-content-preflight/) | 0.1.1 | MIT | Review social content before publication using explicit platform and account constraints. |
+| [agent-design-system-builder](skills/agent-design-system-builder/) | 0.1.2 | MIT | Build evidence-backed design-system artifacts for agent-facing products. |
+| [social-content-preflight](skills/social-content-preflight/) | 0.1.2 | MIT | Review social content before publication using explicit platform and account constraints. |
 
 Machine-readable metadata is available in [`registry.json`](registry.json). Third-party Skills are not included in this original-work collection.
 

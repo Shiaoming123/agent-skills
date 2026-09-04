@@ -1,6 +1,6 @@
 # Provenance
 
-Version: 0.1.1
+Version: 0.1.2
 
 This package is an original synthesis by Shiaoming123. It converts generally
 applicable design-system, accessibility, and visual-QA principles into an Agent
@@ -14,4 +14,4 @@ they do not imply affiliation or endorsement.
 
 The release is licensed under the MIT License in `LICENSE.md`. Git commit and
 tag evidence for this exact package is available in the local repository as the
-annotated tag `v0.1.1`.
+annotated tag `v0.1.2`.
