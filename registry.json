@@ -5,17 +5,16 @@
     {
       "name": "agent-design-system-builder",
       "path": "skills/agent-design-system-builder",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "license": "MIT",
       "status": "active"
     },
     {
       "name": "social-content-preflight",
       "path": "skills/social-content-preflight",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "license": "MIT",
       "status": "active"
     }
   ]
 }
-

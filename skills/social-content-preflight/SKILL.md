@@ -1,7 +1,7 @@
 ---
 name: social-content-preflight
-description: Preflight Chinese social-media content for Xiaohongshu, Douyin, and Bilibili. Use when creating, reviewing, rewriting, or deciding whether a post, script, caption, carousel, subtitle, image description, or source-backed claim is ready to publish; combine platform rules, account tone, factual boundaries, copyright/privacy checks, and a pass/review/block decision.
-version: 0.1.0
+description: 帮你在发布小红书、抖音或 B 站内容前，系统检查文案、脚本、字幕与素材是否适合发布。它会识别高风险内容、事实证据缺口、隐私与版权问题，并给出 PASS、REVIEW 或 BLOCK 结论及可执行改写；所有发布动作仍需人工确认。
+version: 0.1.1
 ---
 
 # Social Content Preflight

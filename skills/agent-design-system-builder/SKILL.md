@@ -1,7 +1,7 @@
 ---
 name: agent-design-system-builder
-description: Use when an AI coding agent must create, document, preserve, or implement a product UI from an approved image, Figma design, existing codebase, or emerging design language without visual drift.
-version: 0.1.0
+description: 帮你把已确认的截图、Figma 设计或现有界面规范，稳定落实为不易跑偏的产品 UI。它会判断设计状态，建立设计契约、设计令牌与视觉 QA 流程，指导 Agent 复用组件、逐屏实现并兼顾响应式与无障碍要求。
+version: 0.1.1
 ---
 
 # Agent Design System Builder

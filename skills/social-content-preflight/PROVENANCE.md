@@ -1,6 +1,6 @@
 # Provenance
 
-Version: 0.1.0
+Version: 0.1.1
 
 This package is an original workflow by Shiaoming123 for reviewing Chinese
 social-media content before publication. It combines factual-boundary checks,
@@ -18,4 +18,4 @@ synthetic example only.
 
 The release is licensed under the MIT License in `LICENSE.md`. Git commit and
 tag evidence for this exact package is available in the local repository as the
-annotated tag `v0.1.0`.
+annotated tag `v0.1.1`.

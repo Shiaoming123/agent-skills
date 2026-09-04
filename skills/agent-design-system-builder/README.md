@@ -1,4 +1,4 @@
-# Agent Design System Builder — v0.1.0
+# Agent Design System Builder — v0.1.1
 
 A portable Agent Skill for keeping AI-generated frontend work aligned with approved prototypes and a durable design system.
 

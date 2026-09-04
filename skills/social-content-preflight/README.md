@@ -1,6 +1,6 @@
 # Social Content Preflight
 
-Version 0.1.0
+Version 0.1.1
 
 An Agent Skill for reviewing Chinese social-media drafts before publication.
 It checks hard risks, evidence boundaries, privacy and copyright, audience fit,
