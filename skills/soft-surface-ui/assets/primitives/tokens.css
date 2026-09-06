@@ -1,0 +1,37 @@
+/* Starting values for the reference study; map into the project's existing tokens. */
+:root {
+  --ss-canvas: #ffffff;
+  --ss-surface: #ffffff;
+  --ss-text: #27272a;
+  --ss-text-secondary: #6f6e75;
+  --ss-reference-muted: #89888e;
+  --ss-border: #ecebef;
+  --ss-accent: #229dcc;
+  --ss-unread: #169fc1;
+  --ss-data-muted: #d8e8f1;
+  --ss-note: #fff2a9;
+  --ss-radius-card: 24px;
+  --ss-radius-media: 8px;
+  --ss-padding-card: 20px;
+  --ss-gap-column: 40px;
+  --ss-gap-row: 48px;
+  --ss-font-ui: Arial, Helvetica, sans-serif;
+  --ss-font-quote: Georgia, "Times New Roman", serif;
+  --ss-shadow: 0 3px 4px #25233002, 0 8px 16px -12px #2823330b;
+  --ss-shadow-hover: 0 12px 28px -14px #33324724;
+  --ss-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ss-motion-micro: 200ms;
+  --ss-motion-surface: 700ms;
+  --ss-motion-exit: 364ms;
+  --ss-motion-enter: 560ms;
+  --ss-motion-enter-delay: 112ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ss-motion-micro: 0ms;
+    --ss-motion-surface: 0ms;
+    --ss-motion-exit: 0ms;
+    --ss-motion-enter: 0ms;
+    --ss-motion-enter-delay: 0ms;
+  }
+}

@@ -15,6 +15,13 @@
       "version": "0.1.2",
       "license": "MIT",
       "status": "active"
+    },
+    {
+      "name": "soft-surface-ui",
+      "path": "skills/soft-surface-ui",
+      "version": "0.1.0",
+      "license": "MIT",
+      "status": "active"
     }
   ]
 }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="A quiet collection of living surfaces. An interactive motion study based on Marvin Schwaibold’s reference."
+    />
+    <title>Soft Surfaces — Motion Study</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="gallery" class="gallery" aria-label="Component gallery"></main>
+    <dialog id="stage" aria-label="Surface motion study">
+      <button
+        class="close icon-button"
+        id="close"
+        aria-label="Return to gallery"
+      ></button>
+      <div class="stage-center">
+        <div class="surface-wrap">
+          <div class="morph-surface" id="surface"></div>
+          <div class="stage-caption">
+            <span id="stage-name"></span><span id="stage-count"></span>
+          </div>
+        </div>
+        <div id="inspector" class="inspector" aria-hidden="true">
+          <div class="mesh" id="mesh"></div>
+          <div class="measure">
+            <span>HEIGHT</span><strong id="height-value">240 PX</strong
+            ><span>RADIUS</span><strong>24 PX</strong>
+          </div>
+        </div>
+      </div>
+      <div class="stage-nav">
+        <button
+          class="icon-button"
+          id="previous"
+          aria-label="Previous card"
+        ></button>
+        <div id="dots" class="dots" aria-label="Choose a card"></div>
+        <button class="icon-button" id="next" aria-label="Next card"></button>
+      </div>
+    </dialog>
+    <footer class="toolbar" aria-label="Motion controls">
+      <div class="view-switch">
+        <button id="gallery-button" class="selected">Gallery</button
+        ><button id="morph-button">Morph</button>
+      </div>
+      <span class="divider"></span
+      ><button
+        id="play-button"
+        class="tool-button"
+        aria-label="Play motion demo"
+      ></button
+      ><button
+        id="speed-button"
+        class="tool-button"
+        aria-label="Toggle slow motion"
+      >
+        1×</button
+      ><button
+        id="mesh-button"
+        class="tool-button"
+        aria-pressed="false"
+        aria-label="Toggle surface mesh"
+      ></button>
+    </footer>
+    <div class="glass-cursor" id="cursor" aria-hidden="true"></div>
+    <div class="toast" role="status" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

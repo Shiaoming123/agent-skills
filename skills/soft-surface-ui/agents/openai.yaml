@@ -1,0 +1,4 @@
+interface:
+  display_name: "Soft Surface UI · 轻盈卡片动效"
+  short_description: "复刻纯白轻量卡片风格，包含视觉规范、连续变形动效方法与可运行示例"
+  default_prompt: "使用 $soft-surface-ui，保留当前产品的信息架构，应用本次纯白轻盈卡片风格并实现连贯的表面变形与内容过渡。"
