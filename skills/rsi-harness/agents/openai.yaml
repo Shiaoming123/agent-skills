@@ -1,0 +1,4 @@
+interface:
+  display_name: "RSI项目工作台"
+  short_description: "为新项目或已有项目配置RSI规则、验收、运行证据与经验复用流程"
+  default_prompt: "使用 $rsi-harness 为当前项目配置 RSI 工作台，保留已有规则、脚本与检查，完成后验证接入结果。"

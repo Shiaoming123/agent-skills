@@ -1,0 +1,7 @@
+{
+  "version": "1.0.2-local.1",
+  "archive": "rsi-harness-v1.0.2-local.1.zip",
+  "archive_sha256": "45a569db00f7165559fd8e64b7b34571d8f80771d38eb17dfd66760f3ab01b8d",
+  "cli_sha256": "aa4225afbac7cbb144dd7b37ebf9e6e65579c278fa774a87115a799fc8d17174",
+  "distribution": "User-supplied local runtime; not included or relicensed by this public skill"
+}

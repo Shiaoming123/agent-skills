@@ -4,7 +4,7 @@
 
 将实际项目中验证过的方法，整理为 Agent 可以按需加载、复用和持续改进的工作技能。
 
-由 **Shiaoming123** 维护的原创 Skill 合集，当前涵盖设计治理、界面风格与动效、内容发布前审查。每个 Skill 独立组织、独立版本管理，并记录来源、许可和适用边界。
+由 **Shiaoming123** 维护的原创 Skill 合集，当前涵盖设计治理、界面风格与动效、内容发布前审查，以及项目工作台接入。每个 Skill 独立组织、独立版本管理，并记录来源、许可和适用边界。
 
 ## Skill 目录
 
@@ -13,6 +13,7 @@
 | [agent-design-system-builder](skills/agent-design-system-builder/) | `0.1.2` | 从已确认的参考建立 Design Contract、设计令牌、组件规则和视觉验收流程，减少 Agent 实现时的设计漂移。 | MIT |
 | [social-content-preflight](skills/social-content-preflight/) | `0.1.2` | 依据明确的平台规则与账号约束，审查待发布内容，输出风险、修改建议与发布前检查结果。 | MIT |
 | [soft-surface-ui](skills/soft-surface-ui/) | `0.1.0` | 复用纯白留白、轻边框、柔和阴影的卡片风格，实现外壳连续变形与内容分层过渡；附完整交互示例。 | MIT（代码与文档）；参考图片除外 |
+| [rsi-harness](skills/rsi-harness/) | `0.1.0` | 配置项目规则、运行证据和经验复用；runtime 需使用者本地导入，未随公开包分发。 | MIT（原创集成文件）；本地 runtime 除外 |
 
 机器可读目录见 [`registry.json`](registry.json)。第三方 Skill 的镜像或搬运不属于本仓库的收录范围。
 

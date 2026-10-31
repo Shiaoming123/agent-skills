@@ -1,0 +1,4 @@
+# User-supplied runtime is local only; do not publish it with this skill.
+/assets/runtime/
+__pycache__/
+*.pyc
