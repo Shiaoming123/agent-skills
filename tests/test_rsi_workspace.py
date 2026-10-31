@@ -2,10 +2,12 @@
 import json
 import os
 from pathlib import Path
+import runpy
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / "skills/rsi-harness/scripts/workspace.py"
 
@@ -75,6 +77,31 @@ class WorkspaceTests(unittest.TestCase):
         self.assertEqual(result["state"], "ready")
         self.assertEqual(result["payload"]["next_step"], "write marker.txt")
         self.assertFalse((self.root / "marker.txt").exists())
+        self.assertEqual(self.snapshot(), before)
+
+    def test_profile_remains_idempotent_across_workflow_directory_orders(self):
+        self.initialize()
+        workflows = self.root / ".github/workflows"
+        workflows.mkdir(parents=True)
+        for index in range(25):
+            (workflows / f"workflow-{index:02}.yml").write_text("synthetic", encoding="utf-8")
+        controller = runpy.run_path(str(SCRIPT), run_name="workspace_test")
+        original_iterdir = Path.iterdir
+        entries = sorted(original_iterdir(workflows))
+
+        def with_order(order):
+            return patch.object(Path, "iterdir", lambda path:
+                iter(order) if path == workflows else original_iterdir(path))
+
+        with with_order(list(reversed(entries))):
+            first = controller["profile"](self.root, write=True)
+        before = self.snapshot()
+        with with_order(entries):
+            second = controller["profile"](self.root, write=True)
+        self.assertEqual(first["action"], "create")
+        self.assertEqual(second["action"], "preserve")
+        self.assertEqual(first["profile"]["facts"]["ci"],
+                         [path.relative_to(self.root).as_posix() for path in entries[:20]])
         self.assertEqual(self.snapshot(), before)
 
     def test_checkpoint_appends_revision_without_overwriting_history(self):

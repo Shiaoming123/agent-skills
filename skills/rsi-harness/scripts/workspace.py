@@ -2,7 +2,7 @@
 """Inspect explicit projects and retain bounded recovery records; never execute steps."""
 import argparse
 import hashlib
-from itertools import islice
+from heapq import nsmallest
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -53,8 +53,8 @@ def inspect(root):
     workflows = root / ".github/workflows"
     reject_links(workflows)
     if workflows.is_dir():
-        # Bounded pointers only; no business tree or file bodies are inspected.
-        for path in islice(workflows.iterdir(), 20):
+        # Enumerate this directory's names; retain only 20 stable pointers, no file bodies.
+        for path in nsmallest(20, workflows.iterdir(), key=lambda entry: entry.name):
             reject_links(path)
             if path.is_file() and path.suffix in (".yaml", ".yml"):
                 facts["ci"].append(path.relative_to(root).as_posix())
